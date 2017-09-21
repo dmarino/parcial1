@@ -1,8 +1,8 @@
 #lista{
-	width: 20%;
+	position: absolute;
+	width: 19%;
 	height: 100%;
 	float: left;
-	position: fixed;
-	padding-top:4%;
+	padding-top:2%;
 	border-style: groove;
 }

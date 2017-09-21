@@ -28,14 +28,13 @@ router.get('/info/:user', function(req, resp) {
 	var user = {};
 	var followers = []; 
 
-
-	db.collection('parcial').insert({"user":user});
-
     github.users.getForUser({
         username: userName
     }, function(err, res) {
-    	user = res.data;
 
+        console.log(res);
+        console.log(err);
+    	user = res.data;
     	github.users.getFollowersForUser({
            username: userName
         }, function(err2, res2) {
@@ -45,6 +44,14 @@ router.get('/info/:user', function(req, resp) {
     });
 
 });
+
+router.post('/consultas', function(req, res) {
+    console.log(req.body.consultas);
+    var consultas = req.body.consultas;
+    var hora = new Date();
+    db.collection('parcial').insert({"hora":hora,"consultas":consultas});
+});
+
 
 
 router.get('/consultas', function(req, res) {

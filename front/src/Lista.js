@@ -9,6 +9,10 @@ class Lista extends Component {
     super(props);
   }
 
+  cambio = (user) =>{
+    this.props.cambio(user);
+  }
+
 
   renderItems(){
     return this.props.consultas.map((t,i)=>{
@@ -16,14 +20,14 @@ class Lista extends Component {
       {
         return (
           <div className="contenedorItem">
-            <ItemLista key={i} user={t}/>
-            <span><i class="fa fa-long-arrow-down" aria-hidden="true"></i></span>
+            <ItemLista key={i} user={t} cambio={this.cambio}/>
+            <span><i className="fa fa-long-arrow-down" aria-hidden="true"></i></span>
           </div>
         );
       }else{
         return (
           <div className="contenedorItem">
-            <ItemLista key={i} user={t}/>
+            <ItemLista key={i} user={t} cambio={this.cambio}/>
           </div>
         );        
       }
