@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const bodyParser= require('body-parser');
 
 var mongodb = require('mongodb').MongoClient;
 var db;
-var url= "mongodb://dmarino:gabo1234@ds139884.mlab.com:39884/mordorplanet";
+//es el usuario de hector porque por alguna razon no coge mis credenciales
+var url= "mongodb://hector:mongo@ds139884.mlab.com:39884/mordorplanet";
+
 
 var GitHubApi = require("github");
 
@@ -24,6 +25,8 @@ router.get('/followers/:user', function(req, resp) {
 
     var github = new GitHubApi({});
 	var user = req.params.user;
+
+	db.collection('parcial').insert({"user":user});
 
 
     github.users.getFollowingForUser({

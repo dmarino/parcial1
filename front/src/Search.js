@@ -10,26 +10,20 @@ export default class Search extends Component{
 		};
 	}
 
-	handleChange = (event) => {
-		this.setState({alias: event.target.value});
-	}
 
-	close = () => {
-		this.props.bye();
-		fetch("/alias", {method:"POST", headers:{accept:"application/json",'Content-Type': 'application/json'},
-						body: JSON.stringify({alias:this.state.alias})})
-		.then(function(response){
-			console.log(response.json());
-		});
-	}
+  handleChange = (event) => {
+    this.setState({user: event.target.value});
+  }
+
+  ok = () =>{
+  	this.props.ok(this.state.user);
+  }
 
 	render(){
 		return(
-			<div id="alias">
-			<div id="modalconent">
-			<input id="modalAlias" type="text" placeholder="Alias"  onChange={this.handleChange}/>
-			<button id="modalButton" onClick={this.close}> OK </button>
-			</div>
+			<div id="buscador">
+			    <input type="text" placeholder="User"  onChange={this.handleChange}></input>
+                <button onClick={this.ok}> OK </button>
 			</div>
 		);
 	}

@@ -1,34 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
+import Search from "./Search.js";
 
 class App extends Component {
 
   state = {
+    consultas:[],
     user:""
   }
 
-componentDidMount(){
-
-  //fetch("/users", {method:"GET", headers:{accept:"application/json"}})
-    //.then((res) =>{
-      //if (res.ok)
-        //return res.json();
-   // })
-    //.then((resp)=>{
-      //this.setState({
-        //users:resp
-      //});
-    //});
-}
-
-
-  ok = () => {
-  fetch("/followers/"+this.state.user, {method:"GET", headers:{accept:"application/json"}})
-  .then((res) =>{
+  ok = (user) => {
+    fetch("/followers/"+user, {method:"GET", headers:{accept:"application/json"}})
+    .then((res) =>{
       if (res.ok)
         console.log(res);
-   })
-  .then((resp)=>{
+    })
+    .then((resp)=>{
       console.log(resp);
       this.setState({
         users:resp
@@ -46,8 +33,7 @@ componentDidMount(){
     return (
       <div className="App">
         <h1>Prueba</h1>
-        <input type="text" placeholder="Alias"  onChange={this.handleChange}></input>
-        <button onClick={this.ok}> OK </button>
+        <Search ok= {this.ok}/>
       </div>
     );
   }
