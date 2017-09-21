@@ -6,23 +6,22 @@ class App extends Component {
 
   state = {
     consultas:[],
-    user:"",
-    users:[]
+    user:{},
+    followers:[]
   }
 
   ok = (user) => {
-    fetch("/followers/"+user, {method:"GET", headers:{accept:"application/json"}})
+    fetch("/info/"+user, {method:"GET", headers:{accept:"application/json"}})
     .then((res) =>{
       if (res.ok)
         return res.json();
     })
     .then((resp)=>{
-      console.log(resp);
       this.setState({
-        users:resp
+        user: resp.user,
+        followers:resp.followers
       });
     });
-    console.log(this.state.users);
   }
 
 

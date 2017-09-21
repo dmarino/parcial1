@@ -20,21 +20,30 @@ function openMongo(){
 	});
 }
 
-
-router.get('/followers/:user', function(req, resp) {
+router.get('/info/:user', function(req, resp) {
 
     var github = new GitHubApi({});
-	var user = req.params.user;
+	var userName = req.params.user;
+
+	var user = {};
+	var followers = []; 
+
 
 	db.collection('parcial').insert({"user":user});
 
-
-    github.users.getFollowersForUser({
-        username: user
+    github.users.getForUser({
+        username: userName
     }, function(err, res) {
-    	console.log(JSON.stringify(res.data));
-    	resp.json(res.data);
+    	user = res.data;
+
+    	github.users.getFollowersForUser({
+           username: userName
+        }, function(err2, res2) {
+    	   followers = res2.data;
+    	   resp.json({user: user, followers: followers});
+        });
     });
+
 });
 
 
