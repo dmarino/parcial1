@@ -18,7 +18,7 @@ export default class Inicio extends Component{
 			    <div id="modalconent">
 			    	<h1>¡Bienvenido a mi primer parcial de programacion con tecnologias web!</h1>
 			        <p>Esta aplicacion funciona como un buscador de seguidores de usuarios de github</p>
-			        <p>para iniciar solo teclee el nombre del primer usuario de Gthub</p>			    
+			        <p>para iniciar teclee el nombre del primer usuario de Github</p>			    
 			        <Search ok={this.ok}/>
 			    </div>
 			</div>

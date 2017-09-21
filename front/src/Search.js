@@ -23,7 +23,7 @@ export default class Search extends Component{
 		return(
 			<div id="buscador">
 			    <input className="input" type="text" placeholder="User"  onChange={this.handleChange}></input>
-			    <div><button onClick={this.ok}> OK </button></div>
+			    <div><button onClick={this.ok}> Listo </button></div>
 			</div>
 		);
 	}

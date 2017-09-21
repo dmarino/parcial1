@@ -3,7 +3,11 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.8);
+    background: #155799;    
+    background: -webkit-linear-gradient(left top, #155799, #159957);
+    background: -o-linear-gradient(bottom right, #155799, #159957); 
+    background: -moz-linear-gradient(bottom right, #155799, #159957); 
+    background: linear-gradient(to bottom right, #155799, #159957); 
   z-index: 99999;
   height: 100%;
   width: 100%;
