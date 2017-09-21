@@ -6,14 +6,15 @@ class App extends Component {
 
   state = {
     consultas:[],
-    user:""
+    user:"",
+    users:[]
   }
 
   ok = (user) => {
     fetch("/followers/"+user, {method:"GET", headers:{accept:"application/json"}})
     .then((res) =>{
       if (res.ok)
-        console.log(res);
+        return res.json();
     })
     .then((resp)=>{
       console.log(resp);
@@ -21,6 +22,7 @@ class App extends Component {
         users:resp
       });
     });
+    console.log(this.state.users);
   }
 
 

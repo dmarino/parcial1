@@ -29,10 +29,11 @@ router.get('/followers/:user', function(req, resp) {
 	db.collection('parcial').insert({"user":user});
 
 
-    github.users.getFollowingForUser({
+    github.users.getFollowersForUser({
         username: user
     }, function(err, res) {
-    	resp.json(res);
+    	console.log(JSON.stringify(res.data));
+    	resp.json(res.data);
     });
 });
 
