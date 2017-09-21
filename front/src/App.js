@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import './App.css';
-import Search from "./Search.js";
+import Inicio from "./Inicio.js";
 
 class App extends Component {
 
   state = {
     consultas:[],
     user:{},
-    followers:[]
+    followers:[],
+    inicio:true
   }
 
   ok = (user) => {
@@ -19,22 +20,16 @@ class App extends Component {
     .then((resp)=>{
       this.setState({
         user: resp.user,
-        followers:resp.followers
+        followers:resp.followers,
+        inicio: false
       });
     });
   }
 
-
-  handleChange = (event) => {
-    this.setState({user: event.target.value});
-  }
-
-
   render() {
     return (
       <div className="App">
-        <h1>Prueba</h1>
-        <Search ok= {this.ok}/>
+        {this.state.inicio ? <Inicio ok={this.ok} /> : null}
       </div>
     );
   }

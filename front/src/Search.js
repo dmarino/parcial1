@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-
+import './Search.css';
 
 export default class Search extends Component{
 	
@@ -22,8 +22,8 @@ export default class Search extends Component{
 	render(){
 		return(
 			<div id="buscador">
-			    <input type="text" placeholder="User"  onChange={this.handleChange}></input>
-                <button onClick={this.ok}> OK </button>
+			    <input className="input" type="text" placeholder="User"  onChange={this.handleChange}></input>
+			    <div><button onClick={this.ok}> OK </button></div>
 			</div>
 		);
 	}
