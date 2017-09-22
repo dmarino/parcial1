@@ -1,5 +1,7 @@
 # parcial1
-Parcial 1 de Web
 
-Salsa Secreta: tener un historial de consultas en mongo.
-Esperanza: crear un arbol en el front que muestre los seguidores. 
+Buscador de seguidores de Github
+
+Mongo: guarda los historiales de las consultas cuando una persona lo pide (presiona el boton de corazón)
+
+Salsa Secreta: Pagina de inicio con gradiente, El poder ver Consultas que le interesan a otras personas puede llegar a ser algo valioso (si logro terminarlo)

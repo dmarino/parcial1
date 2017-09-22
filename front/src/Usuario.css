@@ -1,7 +1,7 @@
 #contenedorUsuario{
     margin-top: 5%;
     text-align: center;
-    height: 30%;
+    height: 50%;
     width: 100%;
 }
 
@@ -11,4 +11,13 @@
     border-radius: 50%;
     height: 100px;
     width: 100px;
+}
+
+#github{
+    color: white;
+    background-color: #2874A6;
+}
+
+#github:hover{
+    background-color: #D6EAF8;
 }

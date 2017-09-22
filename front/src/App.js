@@ -5,6 +5,7 @@ import Lista from "./Lista.js";
 import Menu from "./Menu.js";
 import Usuario from "./Usuario.js";
 import ListaSeguidores from "./ListaSeguidores.js";
+import Cargar from "./Cargar.js";
 
 class App extends Component {
 
@@ -12,7 +13,8 @@ class App extends Component {
     consultas:[],
     consultasHistorial:[],
     user:{},
-    inicio:true
+    inicio:true,
+    cargar:false
   }
 
   ok = (user) => {
@@ -50,17 +52,18 @@ class App extends Component {
   }
 
   cerrar = (user) => {
+    this.setState({
+        consultas: [],
+        inicio: true
+    });
+  }
+
+  guardar = (user) => {
     console.log("entra");
     fetch("/consultas",{method:"POST", headers:{accept:"application/json",'Content-Type': 'application/json'},
             body: JSON.stringify({consultas:this.state.consultas})}
     )
-    .then((resp)=>{
-      this.setState({
-        consultas: [],
-        inicio: true
-      });
-    });
-  }
+  }  
 
   buscar = () =>{
     fetch("/consultas", {method:"GET", headers:{accept:"application/json"}})
@@ -69,19 +72,29 @@ class App extends Component {
         return res.json();
     })
     .then((resp)=>{
-      console.log(resp);
+      this.setState({
+        cargar:true,
+        consultasHistorial: this.state.consultasHistorial
+      });
     });    
   }  
+
+
+  cargar = (hora) =>{
+  //TODO 
+  }  
+
 
   render() {
     return (
       <div className="App">
         {this.state.inicio ? <Inicio ok={this.ok} /> : null}
+        {this.state.cargar ? <Cargar cargar={this.cargar} consultasHistorial={this.state.consultasHistorial}/> : null}
         {this.state.inicio ? null:
           <div className="row">
             <Lista consultas={this.state.consultas}  cambio={this.cambio}/>
             <div className="col-md-9 col-sm-9 col-lg-9 col-xs-9">
-                <Menu cerrar={this.cerrar} buscar={this.buscar}/>
+                <Menu cerrar={this.cerrar} buscar={this.buscar} guardar={this.guardar}/>
                 <Usuario user={this.state.user}/>
                 <ListaSeguidores followers={this.state.followers} cambio={this.cambio}/>
             </div>
