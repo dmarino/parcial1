@@ -7,7 +7,7 @@ var db;
 //es el usuario de hector porque por alguna razon no coge mis credenciales
 var url= "mongodb://hector:mongo2@ds139884.mlab.com:39884/mordorplanet";
 
-app.use(express.static(path.join(__dirname, 'client/build')));
+app.use(express.static(path.join(__dirname, 'front/build')));
 
 var GitHubApi = require("github");
 
