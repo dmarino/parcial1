@@ -60,5 +60,11 @@ router.get('/consultas', function(req, res) {
     })
 });
 
+router.get('/consultas/:id', function(req, res) {
+    db.collection('parcial').find({"_id": req.params.id}).toArray(function(err, results) {
+        res.json(results);        
+    })
+});
+
 
 module.exports = router;
