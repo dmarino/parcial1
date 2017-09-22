@@ -5,10 +5,6 @@ import ItemLista from "./ItemLista.js";
 
 class Lista extends Component {
 
-  constructor(props){
-    super(props);
-  }
-
   cambio = (user) =>{
     this.props.cambio(user);
   }
@@ -16,19 +12,14 @@ class Lista extends Component {
 
   renderItems(){
     return this.props.consultas.map((t,i)=>{
-      if(i==(this.props.consultas.lengh -1))
+      if(i===(this.props.consultas.lengh)-1)
       {
         return (
-          <div className="contenedorItem">
-            <ItemLista key={i} user={t} cambio={this.cambio}/>
-            <span><i className="fa fa-long-arrow-down" aria-hidden="true"></i></span>
-          </div>
+            <ItemLista key={i} user={t} cambio={this.cambio} flecha={false} />
         );
       }else{
         return (
-          <div className="contenedorItem">
-            <ItemLista key={i} user={t} cambio={this.cambio}/>
-          </div>
+            <ItemLista key={i} user={t} cambio={this.cambio} flecha={true}/>
         );        
       }
     });
@@ -36,7 +27,7 @@ class Lista extends Component {
 
   render(){
     return(
-        <div id="lista">
+        <div id="lista" className="col-md-3 col-sm-3 col-lg-3 col-xs-3">
           {this.renderItems()}
         </div>
       );

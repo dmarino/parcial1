@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import './ItemLista.css';
-import ItemLista from "./ItemLista.js";
 
-export default class Lista extends Component {
-
-  constructor(props){
-    super(props);
-  }
+export default class ItemLista extends Component {
 
   cambio = () =>{
     this.props.cambio(this.props.user.login);
@@ -15,9 +10,14 @@ export default class Lista extends Component {
 
   render() {
     return (
-      <div className="item" onClick={this.cambio}>
-          <img src= {this.props.user.avatar_url} width="96" height="96"/>
-          <span>{this.props.user.login}</span>
+      <div className="chip" onClick={this.cambio}>
+          <img src={this.props.user.avatar_url} alt={this.props.user.login + " avatar"}/>
+          <div className="nameChip"><span>{this.props.user.login}</span></div>
+          {this.props.flecha ? null:
+            <div className="item">
+              <i className="fa fa-long-arrow-down"></i>
+            </div>
+          }
       </div>
     );
   }

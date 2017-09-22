@@ -3,10 +3,6 @@ import './Inicio.css';
 import Search from "./Search.js";
 
 export default class Inicio extends Component{
-	
-	constructor(props){
-		super(props);
-	}
 
 	ok = (user) =>{
   	    this.props.ok(user);

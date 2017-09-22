@@ -3,10 +3,6 @@ import './Usuario.css';
 
 export default class Usuario extends Component {
 
-  constructor(props){
-    super(props);
-  }
-
   cambio = () =>{
     this.props.cambio(this.props.user.login);
   }
@@ -14,11 +10,10 @@ export default class Usuario extends Component {
 
   render() {
     return (
-      <div className="usuario" onClick={this.cambio}>
-        <img src={this.props.user.avatar_url}/>
-        <div className="container">
-          <h4><b>{this.props.user.login}</b> <a href={this.props.user.html_url} target="_blank"><i className="fa fa-github"></i></a></h4>
-        </div>
+      <div id="contenedorUsuario" onClick={this.cambio}>
+        <img src={this.props.user.avatar_url} alt={this.props.user.login + " avatar"}/>
+        <h5>{this.props.user.login} ~ followers: {this.props.user.followers}</h5>  
+        <p>{this.props.user.bio}</p>      
       </div>
     );
   }

@@ -1,0 +1,31 @@
+.follower {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin-right: 2%;
+    margin-bottom: 2%;
+    transition: 0.3s;
+    width: 20%;
+    height: 40%;
+    padding-top: 1%;
+    padding-left: 2%;
+    padding-right: 2%;
+    display: inline-block;
+}
+
+.follower img{
+    width: 100%;
+    height: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+}
+
+.follower:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.follower .nombre {
+    text-align: center;
+    width: 100%;
+    height: 40%;
+    font-size: 1.5vw;
+}

@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
-import Usuario from "./Usuario.js";
+import Follower from "./Follower.js";
 
 class ListaSeguidores extends Component {
-
-  constructor(props){
-    super(props);
-  }
 
   cambio = (user) =>{
     this.props.cambio(user);
   }
 
   renderUsuarios(){
+    console.log("entra");
     return this.props.followers.map((t,i)=>{
-      return (<div className="wrapperSeguidor"><Usuario user={t} cambio={this.cambio}/></div>);
+      return (<Follower key={i} user={t} cambio={this.cambio}/>);
     });
   }
 

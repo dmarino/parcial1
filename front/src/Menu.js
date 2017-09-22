@@ -3,12 +3,7 @@ import React, { Component } from 'react';
 
 export default class Menu extends Component {
 
-  constructor(props){
-    super(props);
-  }
-
   cerrar = () =>{
-    console.log("entra");
     this.props.cerrar();
   }
 

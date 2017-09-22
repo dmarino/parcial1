@@ -29,7 +29,6 @@ class App extends Component {
         consultas: this.state.consultas,
         inicio: false
       });
-      console.log(this.state.consultas);
     });
   }
 
@@ -47,14 +46,14 @@ class App extends Component {
         consultas: this.state.consultas,
         inicio: false
       });
-      console.log(this.state.consultas);
     });
   }
 
   cerrar = (user) => {
     console.log("entra");
     fetch("/consultas",{method:"POST", headers:{accept:"application/json",'Content-Type': 'application/json'},
-            body: JSON.stringify({consultas:this.state.consultas})})
+            body: JSON.stringify({consultas:this.state.consultas})}
+    )
     .then((resp)=>{
       this.setState({
         consultas: [],
@@ -79,14 +78,12 @@ class App extends Component {
       <div className="App">
         {this.state.inicio ? <Inicio ok={this.ok} /> : null}
         {this.state.inicio ? null:
-          <div id="contenedor2">
+          <div className="row">
             <Lista consultas={this.state.consultas}  cambio={this.cambio}/>
-            <div id="contenedor">
-              <Menu cerrar={this.cerrar} buscar={this.buscar}/>
-              <div id="contenedorUsuario">
+            <div className="col-md-9 col-sm-9 col-lg-9 col-xs-9">
+                <Menu cerrar={this.cerrar} buscar={this.buscar}/>
                 <Usuario user={this.state.user}/>
-              </div>
-                 <ListaSeguidores followers={this.state.followers} cambio={this.cambio}/>
+                <ListaSeguidores followers={this.state.followers} cambio={this.cambio}/>
             </div>
           </div>
         }
