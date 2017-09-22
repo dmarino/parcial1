@@ -4,7 +4,7 @@ var router = express.Router();
 var mongodb = require('mongodb').MongoClient;
 var db;
 //es el usuario de hector porque por alguna razon no coge mis credenciales
-var url= "mongodb://hector:mongo@ds139884.mlab.com:39884/mordorplanet";
+var url= "mongodb://hector:mongo2@ds139884.mlab.com:39884/mordorplanet";
 
 
 var GitHubApi = require("github");
