@@ -1,8 +1,6 @@
 var express = require('express');
 var router = express.Router();
 const path = require('path');
-const app = express();
-
 
 var mongodb = require('mongodb').MongoClient;
 var db;
@@ -21,12 +19,6 @@ function openMongo(){
 		db = dbs;
 	});
 }
-
-app.use(express.static(path.join(__dirname,'..','front/build')));
-
-router.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname,"..","/front/build/index.html"));
-});
 
 router.get('/info/:user', function(req, resp) {
 
