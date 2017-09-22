@@ -10,6 +10,11 @@ class Cargar extends Component {
     this.props.cargar(consulta);
   }
 
+  cerrar = () =>{
+    console.log("cerrar");
+    this.props.cerrarModal();
+  }  
+
   renderConsultas(){
 
     return this.props.consultasHistorial.map((t,i)=>{
@@ -22,6 +27,7 @@ class Cargar extends Component {
         <div id="cargar">
            <div id="modalconent2">
               <h2>Cargar Alguna Consulta Realizada</h2>
+              <button onClick={this.cerrar} className="botonModal"><i className="fa fa-times" aria-hidden="true"></i></button> 
               {this.renderConsultas()}
            </div>
         </div>

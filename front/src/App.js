@@ -84,12 +84,19 @@ class App extends Component {
   //TODO 
   }  
 
+  cerrarModal = () =>{
+    console.log("llega a cerrar");
+    this.setState({
+        cargar:false
+    });
+  }  
+
 
   render() {
     return (
       <div className="App">
         {this.state.inicio ? <Inicio ok={this.ok} /> : null}
-        {this.state.cargar ? <Cargar cargar={this.cargar} consultasHistorial={this.state.consultasHistorial}/> : null}
+        {this.state.cargar ? <Cargar cargar={this.cargar} cerrarModal={this.cerrarModal} consultasHistorial={this.state.consultasHistorial}/> : null}
         {this.state.inicio ? null:
           <div className="row">
             <Lista consultas={this.state.consultas}  cambio={this.cambio}/>

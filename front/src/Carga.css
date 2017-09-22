@@ -1,20 +1,24 @@
-/*Modal Cargar*/
+
 #cargar{
   position: fixed;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.2);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 99999;
   height: 100%;
   width: 100%;
-  text-align: center;
 }
 
 
 #modalconent2 {
+  position: absolute;
   top: 50%;
   left: 50%;
-  width: 100%;
+  transform: translate(-50%, -50%);
+  border-radius: 25px;
+  background: #fff;   
+  width: 60%;
+  height: 70%;
   padding-left: 20px;
-  color: black;
+  padding-top: 10px;
 }
