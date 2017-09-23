@@ -32,21 +32,23 @@ router.get('/info/:user', function(req, resp) {
         username: userName
     }, function(err, res) {
 
-        console.log(res);
-        console.log(err);
-    	user = res.data;
-    	github.users.getFollowersForUser({
-           username: userName
-        }, function(err2, res2) {
-    	   followers = res2.data;
-    	   resp.json({user: user, followers: followers});
-        });
+        if(res){
+            user = res.data;
+            github.users.getFollowersForUser({
+                username: userName
+            }, function(err2, res2) {
+                followers = res2.data;
+                resp.json({user: user, followers: followers});
+            });           
+        }
+        else{
+            resp.status(404).send("no user");
+        }
     });
 
 });
 
 router.post('/consultas', function(req, res) {
-    console.log(req.body.consultas);
     var consultas = req.body.consultas;
     var hora = new Date();
     db.collection('parcial').insert({"hora":hora,"consultas":consultas});

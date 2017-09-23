@@ -22,15 +22,17 @@ class App extends Component {
     .then((res) =>{
       if (res.ok)
         return res.json();
-    })
+      })
     .then((resp)=>{
-      this.state.consultas.push(resp.user);
-      this.setState({
-        user: resp.user,
-        followers:resp.followers,
-        consultas: this.state.consultas,
-        inicio: false
-      });
+      if (resp){
+        this.state.consultas.push(resp.user);
+        this.setState({
+          user: resp.user,
+          followers:resp.followers,
+          consultas: this.state.consultas,
+          inicio: false
+        });      
+      }
     });
   }
 
