@@ -6,6 +6,8 @@ Mongo: guarda los historiales de las consultas cuando una persona lo pide (presi
 
 Salsa Secreta: Pagina de inicio con gradiente, interfaz grafica (?, El poder ver Consultas que le interesan a otras personas puede llegar a ser algo valioso (si logro terminarlo)
 
+ver demo: https://peaceful-dusk-38277.herokuapp.com/
+
 ## Instrucciones para correr localmente
 
 para correr este proyecto es necesario tener instalado node.js y nodemon
