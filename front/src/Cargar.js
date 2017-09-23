@@ -11,7 +11,6 @@ class Cargar extends Component {
   }
 
   cerrar = () =>{
-    console.log("cerrar");
     this.props.cerrarModal();
   }  
 
