@@ -1,5 +1,5 @@
 #lista{
-    height: 100%;
+    max-height: 80%;
     padding-top: 10px;
     padding-left: 20px;
 }
