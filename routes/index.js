@@ -31,7 +31,7 @@ router.get('/info/:user', function(req, resp) {
     github.users.getForUser({
         username: userName
     }, function(err, res) {
-
+        console.log(res);
         if(res){
             user = res.data;
             github.users.getFollowersForUser({
